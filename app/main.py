@@ -1,9 +1,9 @@
 from fastapi import Depends, FastAPI, HTTPException, Response, status
 import psycopg2
 from psycopg2.extras import RealDictCursor
-import app.crud as crud
+from app import crud , models
 from app.database import engine, get_db
-import app.models as models
+
 
 
 app = FastAPI()
@@ -24,4 +24,3 @@ except Exception as error:
 @app.get("/")
 def root():
     return {"Welcome": "Root page"}
-
